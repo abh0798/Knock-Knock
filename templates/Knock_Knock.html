@@ -1,0 +1,138 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Knock Knock | Maths N Tech Club</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{% static 'images/icons/home.png' %}"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/knock.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/" style="font-size:16px;"><strong><span class="glyphicon glyphicon-search"></span> Knock Knock</strong></a>
+    </div>
+     <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+    <li><a href="#event"><span class="glyphicon glyphicon-education" style="font-size:16px;"></span><strong style="font-size:16px;"> Event Description</strong></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/leaderboard/"><i class="fa fa-trophy" style="font-size:18px;"></i><strong style="font-size:16px;"> Leaderboard</strong></a></li>
+
+        {% if user.is_authenticated %}
+       <!--     <li><a href="/logout/"><span class="glyphicon glyphicon-log-in" style="font-size:16px;"></span><strong style="font-size:16px;"> Log Out</strong></a></li> -->
+        {% else %}
+    <!--        <li><a href="/login/"><span class="glyphicon glyphicon-log-in" style="font-size:16px;"></span><strong style="font-size:16px;"> Sign In</strong></a></li> -->
+           <li><a href="/signup/"><span class="glyphicon glyphicon-log-in" style="font-size:16px;"></span><strong style="font-size:16px;"> Sign Up</strong></a></li>
+        {% endif %}
+
+    </ul>
+  </div>
+</div>
+</nav>
+
+<section class="darken">
+  <img class="mySlides" src="{% static 'images/12.jpeg' %}">
+
+    <div class="mid">
+    <a href="#event"><h2>Knock Knock <i class="fa fa-question" style="font-size:28px; "></i></h2></a>
+  </div>
+
+	<div id="clockdiv">
+  <div>
+    <span id="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+  <div>
+    <span id="hours"></span>
+    <div class="smalltext">Hours</div>
+  </div>
+  <div>
+    <span id="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <span id="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
+</section>
+<div class="container-fluid">
+		<div class="content">
+		<h1 id="event">Event Description</h1>
+					
+				<div>
+                    {% if user.is_authenticated %}
+                    <p>This is a series of aptitude questions based on various concepts of logical problems.These are to check the IQ and also show a miniature version of various competitive exams and interview questions. The person who solves in least time and with most correct answers is declared the winner of that week. </p>
+                    <blockquote>Dots can be connected only by looking backward.</blockquote>
+
+                    <a href="../rules/"><button class="btn btn">Start</button></a>
+                    {% else %}
+                    <p>This is a series of aptitude questions based on various concepts of logical problems.These are to check the IQ and also show a miniature version of various competitive exams and interview questions. The person who solves in least time and with most correct answers is declared the winner of that week. </p>
+					<blockquote>Dots can be connected only by looking backward.</blockquote>
+
+					<a href="/signup/"><button class="btn btn">Sign Up</button></a>
+                    {% endif %}
+
+				</div>
+		</div>
+	</div>
+<script>
+
+function countdown(endDate) {
+  let days, hours, minutes, seconds;
+  
+  endDate = new Date(endDate).getTime();
+  
+  if (isNaN(endDate)) {
+	return;
+  }
+  
+  setInterval(calculate, 1000);
+  
+  function calculate() {
+    let startDate = new Date();
+    startDate = startDate.getTime();
+    
+    let timeRemaining = parseInt((endDate - startDate) / 1000);
+    
+    if (timeRemaining >= 0) {
+      days = parseInt(timeRemaining / 86400);
+      timeRemaining = (timeRemaining % 86400);
+      
+      hours = parseInt(timeRemaining / 3600);
+      timeRemaining = (timeRemaining % 3600);
+      
+      minutes = parseInt(timeRemaining / 60);
+      timeRemaining = (timeRemaining % 60);
+      
+      seconds = parseInt(timeRemaining);
+      
+      document.getElementById("days").innerHTML = parseInt(days, 10);
+      document.getElementById("hours").innerHTML = ("0" + hours).slice(-2);
+      document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+      document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
+    } else {
+      return;
+    }
+  }
+}
+
+(function () { 
+  countdown('09/28/2018 8:00:00 PM'); 
+}());
+</script>
+</body>
+</html>

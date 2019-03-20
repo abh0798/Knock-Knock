@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Leaderboard | Maths N Tech Club</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{% static 'images/icons/trophy.png' %}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/rules.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../"><span class="glyphicon glyphicon-search"></span> Knock Knock</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+
+      <li></li>
+    </ul>
+ <!--   <ul class="nav navbar-nav navbar-right">
+      <li><a href="../"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="../login/"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+    </ul>-->
+  </div>
+</div>
+</nav>
+<div class="container">
+
+  <h3> <i class="fa fa-trophy" style="color:#FFD700;"></i> Leaderboard</h3>
+  <br>
+  <p> Well done guys! <i class="fa fa-glass" style="color:#1E90FF;"></i></p>
+</div>
+<div class="container">
+<br>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    {% for each in everyone %}
+      <tbody>
+      <tr>
+        <td>{{each.first_name}} {{each.last_name}}</td>
+        <td>{{each.username}}</td>
+        <td>{{each.score}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  </div>
+</div>

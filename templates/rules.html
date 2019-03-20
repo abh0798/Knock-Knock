@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rules | Maths N Tech Club</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{% static 'images/icons/rules.png' %}"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/rules.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href=""><span class="glyphicon glyphicon-search"></span> Knock Knock</a>
+    </div>
+     <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+
+      <li></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+<!--      <li><a href="../logout/"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li> -->
+    </ul>
+  </div>
+</div>
+</nav>
+  
+<div class="container">
+
+  <h3><span class="glyphicon glyphicon-pencil" style="font-size:24px; color:#FF4500;"></span> Contest Rules</h3>
+  <br>
+  <p> Read the instructions carefully <span class="glyphicon glyphicon-check" style="font-size:16px;color:#FFD700;"></span></p>
+</div>
+<div class="container-fluid">
+<div class="card">
+  <div class="card-header">
+
+    <p>Time Remaining: <span id="demo"></span></p>
+
+
+  </div>
+  <div class="card-body">
+    <br>
+     <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">1) Answers once submitted cannot be changed further</p>
+    <p class="card-text">2) Submitted responses will be shown in green while other will be shown in white</p>
+    <p class="card-text">3) Answer for the Special Question must be answered in LowerCase</p>
+  </div>
+</div>
+</div>
+<br>
+  <div class="container-fluid text-center" >
+            <a href={{link}} ><button class="btn btn">Unleash the IQ</button></a>
+  </div>
+
+</body>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sept 28, 2018 20:00:00").getTime();
+var flag=0
+
+function Redirect()
+    {
+        window.location="127.0.0.1:8000/event/1/";
+    }
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+
+
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "CONTEST STARTED"
+    }
+}, 1000);
+</script>
+</html>
