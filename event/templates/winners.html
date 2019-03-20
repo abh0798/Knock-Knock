@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Winners</title>
+</head>
+{% if request.user.is_superuser %}
+<body>
+    {% for student in participants %}
+    <pre>
+        <p>User Name: {{student.username}}</p>
+        <p>First Name: {{student.first_name}}</p>
+        <p>Last Name: {{student.last_name}}</p>
+        <p>Conatct No: {{student.contact}}</p>
+    </pre>
+    {% endfor %}
+</body>
+{% else %}
+<body>
+    <h>Access restricted</h>
+    <script type="text/javascript">
+        function Redirect()
+    {
+        window.location="https://www.knockknock.in.net/";
+    }
+    document.write("You will be redirected to a new page in 5 seconds");
+    setTimeout('Redirect()', 5000);
+    </script>
+</body>
+{% endif %}
+</html>

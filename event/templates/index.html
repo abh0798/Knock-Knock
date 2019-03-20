@@ -1,0 +1,12 @@
+{% block title %}
+    <title>Knock Knock</title>
+{% endblock %}
+
+
+{% block content %}
+    <p>{{ queries.query }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
+{% endblock %}
