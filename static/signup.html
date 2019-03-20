@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sign Up | Maths N Tech Club</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'images/icons/user.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main1.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="POST" novalidate>
+					{% csrf_token %}
+
+					<span class="login100-form-title p-b-43">
+						Sign Up
+					</span>
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="first_name" maxlength="30" id="id_first_name">
+						<span class="focus-input100"></span>
+						<span class="label-input100">First Name</span>
+					</div>
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="last_name" maxlength="150" id="id_last_name">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Last Name</span>
+					</div>
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="username" required="" maxlength="150" id="id_username">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Username</span>
+					</div>
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="contact" maxlength="10" id="id_contact">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Contact Number</span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="email" name="email" maxlength="254" id="id_email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="password" required="" maxlength="128" id="id_password">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Sign Up
+						</button>
+					</div>
+
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+					<!--		Already registered? <a href="../login/"><u>Sign In</u></a> -->
+						</span>
+					</div>
+
+				</form>
+
+				<div class="login100-more" style="background-image: url('/static/images/1.png');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

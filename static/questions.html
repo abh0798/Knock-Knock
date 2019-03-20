@@ -1,0 +1,181 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Questions | Maths N Tech Club</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{% static 'images/icons/questions.png' %}"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/questions.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../../event/1/"><span class="glyphicon glyphicon-search"></span> Knock Knock</a>
+    </div>
+     <div class="collapse navbar-collapse" id="myNavbar">
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="fa fa-trophy"><a href="../../leaderboard/">Leaderboard</a></li>
+   <!--   <li><a href="../../logout/"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li> -->
+    </ul>
+  </div>
+</div>
+</nav>
+<div class="container-fluid">
+  <h2>Round 1</h2>
+  <div id="page">
+    <p class="alignright">Time Remaining: <span id="demo"></span></p>
+  </div>
+  <div style="clear: both;"></div>​
+</div>
+<div class="container-fluid">
+  <div class="card">
+<nav class="navbar1 navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <p class="navbar-brand">Question Number</p>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar1">
+    <ul class="nav navbar-nav">
+      {% if query1 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../1/">Question 1</a></li>
+      {% else %}
+      <li><a href="../1/">Question 1</a></li>
+      {% endif %}
+      {% if query2 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../2/">Question 2</a></li>
+      {% else %}
+      <li><a href="../2/">Question 2</a></li>
+      {% endif %}
+      {% if query3 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../3/">Question 3</a></li>
+      {% else %}
+      <li><a href="../3/">Question 3</a></li>
+      {% endif %}
+      {% if query4 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../4/">Question 4</a></li>
+      {% else %}
+      <li><a href="../4/">Question 4</a></li>
+      {% endif %}
+      {% if query5 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../5/">Question 5</a></li>
+      {% else %}
+      <li><a href="../5/">Question 5</a></li>
+      {% endif %}
+      {% if query6 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../6/">Question 6</a></li>
+      {% else %}
+      <li><a href="../6/">Question 6</a></li>
+      {% endif %}
+      {% if query7 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../7/">Question 7</a></li>
+      {% else %}
+      <li><a href="../7/">Question 7</a></li>
+      {% endif %}
+      {% if query8 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../8/">Question 8</a></li>
+      {% else %}
+      <li><a href="../8/">Question 8</a></li>
+      {% endif %}
+      {% if query9 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../9/">Question 9</a></li>
+      {% else %}
+      <li><a href="../9/">Question 9</a></li>
+      {% endif %}
+      {% if query10 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../10/">Question 10</a></li>
+      {% else %}
+      <li><a href="../10/">Question 10</a></li>
+      {% endif %}
+      {% if query11 != 0 %}
+      <li style="background-color: #8bca8b;"><a href="../../special/">Question 11</a></li>
+      {% else %}
+      <li><a href="../../special/">Question 11</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+</div>
+</div>
+<form method="POST">
+  {% csrf_token %}
+  <div class="container-fluid">
+<div class="card">
+  <div class="card-header">
+    <h5><strong>Question {{ID}}</strong></h5>
+  </div>
+  <br>
+  <br>
+  <div class="card-body">
+    <h5 class="card-title">{{queries.query}}</h5>
+    <p class="card-text">
+<ul class="answers">
+<input type="radio" name="user_answer" value="1" id="id_user_answer">{{queries.option1}}<br/>
+<input type="radio" name="user_answer" value="2" id="id_user_answer">{{queries.option2}}<br/>
+<input type="radio" name="user_answer" value="3" id="id_user_answer">{{queries.option3}}<br/>
+<input type="radio" name="user_answer" value="4" id="id_user_answer">{{queries.option4}}<br/>
+</ul></p>
+  </div>
+</div>
+<br>
+  <div class="container-fluid text-center" >
+    <button class="btn btn-lg" type="submit">Submit</button>
+  </div>
+</br>
+</form>
+<script>
+// Set the date we're counting down to
+//Time when the contest ends
+var countDownDate = new Date("Sept 29, 2018 12:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "Contest Ended";
+        redirect();
+    }
+    function redirect(){
+    document.write("This page will be reirected in 3 seconds");
+        setTimeout(function(){  location.replace("http://206.189.142.107:8000/leaderboard/")}, 3000);
+}
+}, 1000);
+</script>
+</body>
+</html>
